@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>local storage</title>
+    
+  </head>
+  <body>
+    <header>
+      <h1>Add Details</h1>
+    </header>
+
+    
+      <form onsubmit="savetolocalStorage(event)">
+        <h1>User Details</h1>
+      
+          <label>Name:</label><br>
+        
+          <input type="text" name="username" required/><br>
+       
+          <label>Email:</label><br>
+          <input type="email" name="emailId"required><br>
+         
+          <label>Phone_no</label><br>
+          <input type="tel" name="phonenumber"/><br>
+    
+        <button>Submit</button> 
+      </form>
+
+      
+
+    <script>
+     
+      function savetolocalStorage(event){
+        event.preventDefault();
+       
+        var arr=[];
+        const name= event.target.username.value;
+        const email= event.target.emailId.value;
+        const phone=event.target.phonenumber.value;
+
+    const obj = {
+        name,
+        email,
+        phone
+    }
+    
+    localStorage.setItem(obj.name,JSON.stringify(obj));
+   
+}
+
+    </script>
+  </body>
+</html>
